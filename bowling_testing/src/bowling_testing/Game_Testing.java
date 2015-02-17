@@ -52,6 +52,13 @@ public class Game_Testing extends TestCase {
 		rollMany(12, 10);
 		assertEquals(300, g.score());
 	}
+	
+	@Test
+	public void testPlayGame() throws Exception {
+		League testLeague = new League();
+		testLeague.newLeagueNight();
+		
+	}
 
 	private void rollStrike() {
 	   g.roll(10); 

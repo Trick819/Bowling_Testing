@@ -1,8 +1,14 @@
 package bowling_testing;
 
+import java.io.Console;
+import java.util.Scanner;
+
 public class Game {
 	private int rolls[] = new int[21];
 	private int currentRoll = 0;
+	
+	static Scanner input = new Scanner(System.in);
+
 	
 	public void roll(int pins) {
 		rolls[currentRoll++] = pins;
@@ -47,4 +53,22 @@ public class Game {
 	private boolean isSpare(int frameIndex) {
 		return rolls[frameIndex] + rolls[frameIndex+1] == 10;
 	}
+	
+	//******************************************************
+	
+	public void playGame() {
+		int currentRoll = 0;
+		int gameScore = 0;
+		for (int i = 0; i < 21; i++) {
+			System.out.println("Roll for #" + i + "?");
+			currentRoll = input.nextInt();
+			roll(currentRoll);
+		}
+		
+		gameScore = score();
+		
+		System.out.println("Game score was: " + gameScore);
+	}
+	
+	
 }
